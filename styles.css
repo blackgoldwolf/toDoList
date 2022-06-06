@@ -1,96 +1,167 @@
+/*Declaring css variables*/
+:root {
+  --dark: #374151;
+  --darker: #1f2937;
+  --darkest: #111827;
+  --gray: #6b7280;
+  --light: #eee;
+  --pink: #ec4899;
+  --purple: #8b5cf6;
+}
+
+  /*Setting default values*/
 * {
   box-sizing: border-box;
-}
-
-ul {
   margin: 0;
-  padding: 0;
+  font-family: 'Fira sans',sans-serif;
 }
 
-ul li {
-  cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
-  background: #eee;
-  font-size: 18px;
-  transition: 0.2s;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-ul li:hover {
-  background: #ddd;
-}
-
-ul li.checked {
-  background: #888;
+/*Styling body*/
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--dark);
   color: #fff;
-  text-decoration: line-through;
 }
 
-ul li.checked::before {
-  content: "";
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
+/*Stling for the header*/
+header {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 16px 12px 16px;
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: var(--gray);
 }
 
-.close:hover {
-  background-color: #f44336;
-  color: white;
+/*Styling for the new task form button*/
+#new-task-form {
+  display: flex;
 }
 
-.header {
-  background-color: #f44336;
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
-}
-
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-input {
-  margin: 0;
+/*Forcing all styles to be plaintext so we can self style*/
+input, button {
+  appearance: none;
   border: none;
-  border-radius: 0;
-  width: 75%;
-  padding: 10px;
-  float: left;
-  font-size: 16px;
+  outline: none;
+  background: none;
 }
 
-.addBtn {
-  padding: 10px;
-  width: 25%;
-  background: #d9d9d9;
-  color: #555;
-  float: left;
-  text-align: center;
-  font-size: 16px;
+/*Styling for the input field and the placeholder*/
+#new-task-input {
+  flex: 1 1 0%;
+  background: var(--darker);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  color: var(--light);
+  font-size: 1.25rem;
+}
+
+#new-task-input::placeholder {
+  color: var(--gray);
+}
+
+/*Styling the submit section*/
+#new-task-submit {
+  color: var(--pink);
+  font-size: 1.25rem;
+  font-weight: 700;
+  background-image: linear-gradient(to right, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   cursor: pointer;
-  transition: 0.3s;
-  border-radius: 0;
+  transition: 0.4s;
 }
 
-.addBtn:hover {
-  background-color: #bbb;
+#new-task-submit:hover {
+  opacity: 0.8;
+}
+
+#new-task-submit:active {
+  opacity: 0.6;
+}
+
+/*Setting main styles to a more neutral setting*/
+main {
+  flex: 1 1 0%;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.task-list {
+  padding: 1rem;
+}
+
+/*Setting task list and task styles*/
+.task-list h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+#tasks .task {
+  display:flex;
+  justify-content: space-between;
+  background-color: var(--darkest);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+#tasks .task .content {
+  flex: 1 1 0%;
+}
+
+#tasks .task .content .text {
+  color: var(--light);
+  font-size: 1.25rem;
+  width: 100%;
+  display: block;
+  transition: 0.4s;
+}
+
+
+#tasks .task .content .text:not(:read-only) {
+  color: var(--pink);
+}
+
+#tasks .task .actions {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.task .actions button {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+
+.task .actions button:hover {
+  opacity: 0.8;
+}
+
+.task .actions button:active {
+  opacity: 0.6;
+}
+
+.task .actions .edit {
+  background-image: linear-gradient(to right, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.task .actions .delete {
+  color: crimson;
 }
