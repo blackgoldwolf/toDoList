@@ -1,4 +1,4 @@
-window.localStorage
+/*Working on adding localstorage*/
 
 /*Setting the forms and making sure the page doesn't refresh*/
 
