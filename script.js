@@ -1,4 +1,4 @@
-/*Working on adding localstorage*/
+/*Working on adding localstorage so the list stays after refresh*/
 
 /*Setting the forms and making sure the page doesn't refresh*/
 
